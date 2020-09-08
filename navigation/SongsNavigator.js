@@ -12,7 +12,7 @@ import SongsPlayScreen from '../screens/SongsPlayScreen';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import EvilIcons from 'react-native-vector-icons/EvilIcons';
 
-import Colors from '../constants/Colors';
+import Colors from '../components/Colors';
 
 const AllSongsNavigator = createStackNavigator(
   {
@@ -22,7 +22,7 @@ const AllSongsNavigator = createStackNavigator(
   },
   {
     defaultNavigationOptions: {
-      headerShown: true,
+      headerShown: false,
     },
   },
 );
@@ -34,7 +34,7 @@ const FavSongsNavigator = createStackNavigator(
   },
   {
     defaultNavigationOptions: {
-      headerShown: true,
+      headerShown: false,
     },
   },
 );
