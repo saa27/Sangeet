@@ -45,7 +45,7 @@ export const SONGS = [
   ),
   new Song(
     'p2',
-    'g2',
+    ['g1', 'g2'],
     'Bad Liar',
     'Imagine Dragons',
     'https://samplesongs.netlify.app/album-arts/bad-liar.jpg',
@@ -53,7 +53,7 @@ export const SONGS = [
   ),
   new Song(
     'p3',
-    'g2',
+    ['g1', 'g2'],
     'Faded',
     'Alan Walker',
     'https://samplesongs.netlify.app/album-arts/faded.jpg',
@@ -61,7 +61,7 @@ export const SONGS = [
   ),
   new Song(
     'p4',
-    'g3',
+    ['g1', 'g2'],
     'Hate Me',
     'Ellie Goulding',
     'https://samplesongs.netlify.app/album-arts/hate-me.jpg',
@@ -69,7 +69,7 @@ export const SONGS = [
   ),
   new Song(
     'p5',
-    'g4',
+    ['g1', 'g2'],
     'Solo',
     'Clean Bandit',
     'https://samplesongs.netlify.app/album-arts/solo.jpg',

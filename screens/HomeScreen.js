@@ -20,12 +20,25 @@ const {width, height} = Dimensions.get('window');
 
 const HomeScreen = (props) => {
   const renderGenreItem = ({item, index}) => {
-    return <GenreGrid imageUrl={item.imageUrl} title={item.title} />;
+    return (
+      <GenreGrid
+        imageUrl={item.imageUrl}
+        title={item.title}
+        onSelect={() => {
+          props.navigation.navigate('SongsList', {gid: item.id}); //passing the id of genre as params to view its songs in the next screen
+        }}
+      />
+    );
   };
 
   const renderSongItem = ({item, index}) => {
     return (
-      <Recomm poster={item.poster} title={item.title} artist={item.artist} />
+      <Recomm
+        poster={item.poster}
+        title={item.title}
+        artist={item.artist}
+        onSelect={() => {}}
+      />
     );
   };
 
@@ -39,7 +52,7 @@ const HomeScreen = (props) => {
         placeholderTextColor={Colors.primary}
         placeholder="Search for songs..."
       />
-      <ScrollView>
+      <ScrollView showsVerticalScrollIndicator={false}>
         <View style={styles.welcome}>
           <Text style={styles.header}>Hey There!</Text>
           <Text style={styles.subHeader}>Choose your favourite genre!</Text>
@@ -88,7 +101,6 @@ const styles = StyleSheet.create({
     fontSize: height / 41,
     marginBottom: 10,
   },
-  
 });
 
 export default HomeScreen;

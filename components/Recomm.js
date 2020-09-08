@@ -1,19 +1,35 @@
 import React from 'react';
-import {StyleSheet, View, Image, Text} from 'react-native';
+import {
+  StyleSheet,
+  View,
+  Image,
+  Text,
+  TouchableNativeFeedback,
+  TouchableOpacity,
+  Platform,
+} from 'react-native';
+
+let TouchableCmp = TouchableOpacity;
+
+if (Platform.OS === 'android' && Platform.Version >= 21) {
+  TouchableCmp = TouchableNativeFeedback;
+}
 
 const Recomm = (props) => {
   return (
     <View styles={styles.recommList}>
-      <View style={styles.card}>
-        <Image
-          source={{uri: props.poster}}
-          style={{height: 25, width: '100%', flex: 1}}
-        />
-        <View style={styles.infoContainer}>
-          <Text>{props.title}</Text>
-          <Text>{props.artist}</Text>
+      <TouchableCmp>
+        <View style={styles.card}>
+          <Image
+            source={{uri: props.poster}}
+            style={{height: 25, width: '100%', flex: 1}}
+          />
+          <View style={styles.infoContainer}>
+            <Text>{props.title}</Text>
+            <Text>{props.artist}</Text>
+          </View>
         </View>
-      </View>
+      </TouchableCmp>
     </View>
   );
 };
