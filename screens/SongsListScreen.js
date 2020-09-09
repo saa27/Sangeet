@@ -20,7 +20,10 @@ const SongsListScreen = (props) => {
         title={item.title}
         artist={item.artist}
         onSelect={() =>
-          props.navigation.navigate('SongsPlay', {songId: item.id})
+          props.navigation.navigate('SongsPlay', {
+            sid: item.id,
+            gid: item.genreId,
+          })
         }
       />
     );
