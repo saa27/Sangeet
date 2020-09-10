@@ -34,7 +34,7 @@ const HomeScreen = (props) => {
   const renderSongItem = ({item, index}) => {
     return (
       <Recomm
-        poster={item.poster}
+        artwork={item.artwork}
         title={item.title}
         artist={item.artist}
         onSelect={() => {}}

@@ -1,11 +1,11 @@
 class Song {
-  constructor(id, genreId, title, artist, poster, songUrl) { //to provide a blueprint for how our songs will look like, what all it will contain
+  constructor(id, genre, title, artist, artwork, url) { //to provide a blueprint for how our songs will look like, what all it will contain
     this.id = id;
-    this.genreId = genreId;
+    this.genre = genre;
     this.title = title;
     this.artist = artist;
-    this.poster = poster;
-    this.songUrl = songUrl;
+    this.artwork = artwork;
+    this.url = url;
   }
 }
 

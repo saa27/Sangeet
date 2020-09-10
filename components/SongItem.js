@@ -23,7 +23,7 @@ const SongItem = (props) => {
       <View style={styles.songAndIcon}>
         <TouchableCmp onPress={props.onSelect}> 
           <View style={{flexDirection: 'row'}}>
-            <Image source={{uri: props.poster}} style={styles.songImg} />
+            <Image source={{uri: props.artwork}} style={styles.songImg} />
             <View style={styles.titleAndartist}>
               <Text style={styles.songTitle}>{props.title}</Text>
               <Text style={styles.songArtist}>{props.artist}</Text>

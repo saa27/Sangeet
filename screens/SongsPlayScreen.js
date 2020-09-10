@@ -11,6 +11,8 @@ import {SafeAreaView} from 'react-native-safe-area-context';
 import {FlatList} from 'react-native-gesture-handler';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
+import TrackPlayer from 'react-native-track-player';
+
 import {SONGS} from '../components/data';
 import Controller from '../components/Controller';
 
@@ -20,18 +22,32 @@ const SongsPlayScreen = (props) => {
   const sId = props.navigation.getParam('sid');
   const gId = props.navigation.getParam('gid');
 
-  const displayedSongs = SONGS.filter((song) => song.genreId.indexOf(gId) >= 0);
+  const displayedSongs = SONGS.filter((song) => song.genre.indexOf(gId) >= 0);
 
   const scrollX = useRef(new Animated.Value(0)).current; //to prevent from re rendering
   const [songIndex, setSongIndex] = useState(sId);
   const slider = useRef(null);
+  const [isPlayerReady, setIsPlayerReady] = useState(false);
 
   useEffect(() => {
     scrollX.addListener(({value}) => {
       const index = Math.round(value / width);
       setSongIndex(index);
     });
+
+    TrackPlayer.setupPlayer().then(async () => {
+      console.log('Player ready');
+      await TrackPlayer.add(displayedSongs);
+      setIsPlayerReady(true);
+      TrackPlayer.play();
+    });
   }, []);
+
+  useEffect(() => {
+    if (isPlayerReady) {
+      TrackPlayer.skip(displayedSongs[songIndex].id);
+    }
+  }, [songIndex]);
 
   const goNext = () => {
     slider.current.scrollToOffset({
@@ -48,7 +64,7 @@ const SongsPlayScreen = (props) => {
   const renderSongItem = ({item, index}) => {
     return (
       <View style={styles.imgContainer}>
-        <Image source={{uri: item.poster}} style={{height: 320, width: 320}} />
+        <Image source={{uri: item.artwork}} style={{height: 320, width: 320}} />
         {/* <Text>{item.title}</Text> */}
       </View>
     );

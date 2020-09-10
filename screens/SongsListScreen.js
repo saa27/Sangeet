@@ -11,18 +11,18 @@ const SongsListScreen = (props) => {
 
   const displayedGenre = GENRES.find((genre) => genre.id === gid); //getting the genre passed as param
 
-  const displayedSongs = SONGS.filter((song) => song.genreId.indexOf(gid) >= 0); //filter out the songs of the same genre
+  const displayedSongs = SONGS.filter((song) => song.genre.indexOf(gid) >= 0); //filter out the songs of the same genre
 
   const renderSongItem = ({item, index}) => {
     return (
       <SongItem
-        poster={item.poster}
+        artwork={item.artwork}
         title={item.title}
         artist={item.artist}
         onSelect={() =>
           props.navigation.navigate('SongsPlay', {
             sid: item.id,
-            gid: item.genreId,
+            gid: item.genre,
           })
         }
       />
