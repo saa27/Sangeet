@@ -32,22 +32,26 @@ const SongsPlayScreen = (props) => {
   useEffect(() => {
     scrollX.addListener(({value}) => {
       const index = Math.round(value / width);
-      setSongIndex(index);
+      setSongIndex(index);//set the next song in queue
     });
 
     TrackPlayer.setupPlayer().then(async () => {
       console.log('Player ready');
       await TrackPlayer.add(displayedSongs);
+      TrackPlayer.skip(sId);//to start from the selected song
       setIsPlayerReady(true);
       TrackPlayer.play();
     });
+    return () => {
+      scrollX.removeAllListeners();
+    };
   }, []);
 
   useEffect(() => {
     if (isPlayerReady) {
       TrackPlayer.skip(displayedSongs[songIndex].id);
     }
-  }, [songIndex]);
+  }, [songIndex]);//whenever scroll value changes hence songIndex changes then the songTrack will also skip to that id 
 
   const goNext = () => {
     slider.current.scrollToOffset({
@@ -65,7 +69,6 @@ const SongsPlayScreen = (props) => {
     return (
       <View style={styles.imgContainer}>
         <Image source={{uri: item.artwork}} style={{height: 320, width: 320}} />
-        {/* <Text>{item.title}</Text> */}
       </View>
     );
   };

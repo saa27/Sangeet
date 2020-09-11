@@ -77,7 +77,7 @@ export const SONGS = [
   ),
   new Song(
     '5',
-    'g5',
+    'g1',
     'Without Me',
     'Halsey',
     'https://samplesongs.netlify.app/album-arts/without-me.jpg',
