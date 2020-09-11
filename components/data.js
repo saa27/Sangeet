@@ -41,7 +41,7 @@ export const SONGS = [
     'Death Bed',
     'Powfu',
     'https://samplesongs.netlify.app/album-arts/death-bed.jpg',
-    'https://samplesongs.netlify.app/Death%20Bed.mp3',
+    require('./song.mpeg'),
   ),
   new Song(
     '1',
