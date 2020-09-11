@@ -13,16 +13,23 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 
 import TrackPlayer from 'react-native-track-player';
 
-import {SONGS} from '../components/data';
+import {SONGS, SONGS2} from '../components/data';
 import Controller from '../components/Controller';
+import MySlider from '../components/MySlider';
 
 const {width, height} = Dimensions.get('window');
 
 const SongsPlayScreen = (props) => {
   const sId = props.navigation.getParam('sid');
   const gId = props.navigation.getParam('gid');
+  let arr = [{}];
+  if (gId === '1') {
+    arr = SONGS;
+  } else if (gId ==='2') {
+    arr = SONGS2;
+  }
 
-  const displayedSongs = SONGS.filter((song) => song.genre.indexOf(gId) >= 0);
+  const displayedSongs = arr.filter((song) => song.genre.indexOf(gId) >= 0);
 
   const scrollX = useRef(new Animated.Value(0)).current; //to prevent from re rendering
   const [songIndex, setSongIndex] = useState(sId);
@@ -32,13 +39,13 @@ const SongsPlayScreen = (props) => {
   useEffect(() => {
     scrollX.addListener(({value}) => {
       const index = Math.round(value / width);
-      setSongIndex(index);//set the next song in queue
+      setSongIndex(index); //set the next song in queue
     });
 
     TrackPlayer.setupPlayer().then(async () => {
       console.log('Player ready');
       await TrackPlayer.add(displayedSongs);
-      TrackPlayer.skip(sId);//to start from the selected song
+      TrackPlayer.skip(sId); //to start from the selected song
       setIsPlayerReady(true);
       TrackPlayer.play();
     });
@@ -51,7 +58,7 @@ const SongsPlayScreen = (props) => {
     if (isPlayerReady) {
       TrackPlayer.skip(displayedSongs[songIndex].id);
     }
-  }, [songIndex]);//whenever scroll value changes hence songIndex changes then the songTrack will also skip to that id 
+  }, [songIndex]); //whenever scroll value changes hence songIndex changes then the songTrack will also skip to that id
 
   const goNext = () => {
     slider.current.scrollToOffset({
@@ -110,6 +117,7 @@ const SongsPlayScreen = (props) => {
         <Text style={styles.title}>{displayedSongs[songIndex].title}</Text>
         <Text style={styles.artist}>{displayedSongs[songIndex].artist}</Text>
       </View>
+      <MySlider />
       <Controller goNext={goNext} goPrev={goPrevious} />
     </View>
   );
@@ -126,7 +134,7 @@ const styles = StyleSheet.create({
   songinfoCont: {
     padding: 20,
     alignItems: 'center',
-    marginBottom: 20,
+    marginBottom: 5,
   },
   title: {
     fontSize: 25,

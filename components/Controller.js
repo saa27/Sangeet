@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {View, Text, StyleSheet, ActivityIndicator} from 'react-native';
+import {View, StyleSheet, ActivityIndicator} from 'react-native';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 
 import TrackPlayer from 'react-native-track-player';

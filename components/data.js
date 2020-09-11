@@ -3,32 +3,32 @@ import Genre from '../models/Genre';
 
 export const GENRES = [
   new Genre(
-    'g1',
+    '1',
     'Romantic',
     'https://samplesongs.netlify.app/album-arts/death-bed.jpg',
   ), //dummy colors, will add image later
   new Genre(
-    'g2',
+    '2',
     'Soothing',
     'https://samplesongs.netlify.app/album-arts/death-bed.jpg',
   ),
   new Genre(
-    'g3',
+    '3',
     'Rock-on',
     'https://samplesongs.netlify.app/album-arts/death-bed.jpg',
   ),
   new Genre(
-    'g4',
+    '4',
     'Classical',
     'https://samplesongs.netlify.app/album-arts/death-bed.jpg',
   ),
   new Genre(
-    'g5',
+    '5',
     'Workout',
     'https://samplesongs.netlify.app/album-arts/death-bed.jpg',
   ),
   new Genre(
-    'g6',
+    '6',
     'Dance',
     'https://samplesongs.netlify.app/album-arts/death-bed.jpg',
   ),
@@ -37,7 +37,7 @@ export const GENRES = [
 export const SONGS = [
   new Song(
     '0',
-    'g1',
+    '1',
     'Death Bed',
     'Powfu',
     'https://samplesongs.netlify.app/album-arts/death-bed.jpg',
@@ -45,7 +45,7 @@ export const SONGS = [
   ),
   new Song(
     '1',
-    'g1',
+    '1',
     'Bad Liar',
     'Imagine Dragons',
     'https://samplesongs.netlify.app/album-arts/bad-liar.jpg',
@@ -53,7 +53,7 @@ export const SONGS = [
   ),
   new Song(
     '2',
-    'g1',
+    '1',
     'Faded',
     'Alan Walker',
     'https://samplesongs.netlify.app/album-arts/faded.jpg',
@@ -61,7 +61,7 @@ export const SONGS = [
   ),
   new Song(
     '3',
-    'g1',
+    '1',
     'Hate Me',
     'Ellie Goulding',
     'https://samplesongs.netlify.app/album-arts/hate-me.jpg',
@@ -69,15 +69,18 @@ export const SONGS = [
   ),
   new Song(
     '4',
-    'g1',
+    '1',
     'Solo',
     'Clean Bandit',
     'https://samplesongs.netlify.app/album-arts/solo.jpg',
     'https://samplesongs.netlify.app/Solo.mp3',
   ),
+];
+
+export const SONGS2 = [
   new Song(
-    '5',
-    'g1',
+    '0',
+    '2',
     'Without Me',
     'Halsey',
     'https://samplesongs.netlify.app/album-arts/without-me.jpg',
