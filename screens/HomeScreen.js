@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {
   View,
   Text,
@@ -9,10 +9,10 @@ import {
   Image,
 } from 'react-native';
 import {SearchBar} from 'react-native-elements';
-import {ScrollView} from 'react-native-gesture-handler';
+import {ScrollView, TouchableOpacity} from 'react-native-gesture-handler';
 
 import Colors from '../components/Colors';
-import {GENRES, SONGS} from '../components/data';
+import {GENRES, SONGS, SONGS2} from '../components/data';
 import GenreGrid from '../components/GenreGrid';
 import Recomm from '../components/Recomm';
 
@@ -37,26 +37,30 @@ const HomeScreen = (props) => {
         artwork={item.artwork}
         title={item.title}
         artist={item.artist}
-        onSelect={() => {}}
+        onSelect={() =>
+          props.navigation.navigate('SongsPlay', {
+            sid: item.id,
+            gid: item.genre,
+          })
+        }
       />
     );
   };
 
   return (
-    <View>
-      <SearchBar
-        round={true}
-        lightTheme
-        containerStyle={{backgroundColor: 'black'}}
-        inputContainerStyle={{backgroundColor: '#ccc'}}
-        placeholderTextColor={Colors.primary}
-        placeholder="Search for songs..."
-      />
+    <View style={{backgroundColor: 'rgba(0,0,0, 0.8)', padding: 10}}>
       <ScrollView showsVerticalScrollIndicator={false}>
-        <View style={styles.welcome}>
+        <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
           <Text style={styles.header}>Hey There!</Text>
-          <Text style={styles.subHeader}>Choose your favourite genre!</Text>
+          <TouchableOpacity
+            onPress={() => {
+              props.navigation.navigate('Search');
+            }}>
+            <Text>Search</Text>
+          </TouchableOpacity>
         </View>
+        <Text style={styles.subHeader}>Choose your favourite genre!</Text>
+
         <View style={styles.listOfGenres}>
           <FlatList
             keyExtractor={(item, index) => item.id}
@@ -68,7 +72,7 @@ const HomeScreen = (props) => {
         </View>
         <View style={styles.recomm}>
           <Text style={styles.recommText}>Recommended for you</Text>
-          <FlatList horizontal data={SONGS} renderItem={renderSongItem} />
+          <FlatList horizontal data={SONGS} renderItem={renderSongItem} showsHorizontalScrollIndicator={false} />
         </View>
       </ScrollView>
     </View>
@@ -77,9 +81,10 @@ const HomeScreen = (props) => {
 
 const styles = StyleSheet.create({
   welcome: {
-    padding: 10,
+    padding: 20,
   },
   header: {
+    color: 'white',
     fontSize: height / 25,
     paddingBottom: 15,
   },
@@ -95,9 +100,10 @@ const styles = StyleSheet.create({
 
   recomm: {
     padding: 10,
-    height: 350,
+    height: 280,
   },
   recommText: {
+    color: 'gray',
     fontSize: height / 41,
     marginBottom: 10,
   },

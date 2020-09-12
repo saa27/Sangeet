@@ -18,15 +18,17 @@ if (Platform.OS === 'android' && Platform.Version >= 21) {
 const Recomm = (props) => {
   return (
     <View styles={styles.recommList}>
-      <TouchableCmp>
-        <View style={styles.card}>
-          <Image
-            source={{uri: props.artwork}}
-            style={{height: 25, width: '100%', flex: 1}}
-          />
+      <TouchableCmp onPress={props.onSelect}>
+        <View style={styles.main}>
+          <View style={styles.card}>
+            <Image
+              source={{uri: props.artwork}}
+              style={{height: '100%', width: '100%', flex: 1}}
+            />
+          </View>
           <View style={styles.infoContainer}>
-            <Text>{props.title}</Text>
-            <Text>{props.artist}</Text>
+            <Text style={styles.title}>{props.title}</Text>
+            <Text style={styles.artist}>{props.artist}</Text>
           </View>
         </View>
       </TouchableCmp>
@@ -40,19 +42,30 @@ const styles = StyleSheet.create({
     padding: 20,
     marginLeft: 50,
   },
-  card: {
-    borderRadius: 10,
-    height: 180,
-    width: 150,
-    overflow: 'hidden',
-    backgroundColor: 'white',
-    marginRight: 20,
-  },
-  infoContainer: {
-    marginLeft: 10,
+  main: {
     justifyContent: 'center',
     alignItems: 'center',
   },
+  card: {
+    height: 140,
+    width: 150,
+    overflow: 'hidden',
+    marginRight: 20,
+    marginBottom: 5
+  },
+  infoContainer: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginRight: 20,
+  },
+  title: {
+    color: 'white',
+    fontSize: 18
+  },
+  artist: {
+    color: 'gray',
+
+  }
 });
 
 export default Recomm;

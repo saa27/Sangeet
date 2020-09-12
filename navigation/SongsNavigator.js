@@ -9,6 +9,8 @@ import HomeScreen from '../screens/HomeScreen';
 import FavouritesScreen from '../screens/FavouritesScreen';
 import SongsListScreen from '../screens/SongsListScreen';
 import SongsPlayScreen from '../screens/SongsPlayScreen';
+import SearchScreen from '../screens/SearchScreen';
+
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import EvilIcons from 'react-native-vector-icons/EvilIcons';
 
@@ -19,6 +21,7 @@ const AllSongsNavigator = createStackNavigator(
     Home: HomeScreen,
     SongsList: SongsListScreen,
     SongsPlay: SongsPlayScreen,
+    Search: SearchScreen
   },
   {
     defaultNavigationOptions: {
@@ -67,17 +70,19 @@ const tabScreenConfig = {
 
 const SongsNavigator =
   Platform.OS === 'android'
-    ? createMaterialBottomTabNavigator(tabScreenConfig, { //for android like effect
+    ? createMaterialBottomTabNavigator(tabScreenConfig, {
+        //for android like effect
         activeColor: 'white',
         inactiveColor: 'rgba( 10, 10, 10, 0.6)',
         shifting: true,
       })
-    : createBottomTabNavigator(tabScreenConfig, { //for ios like effect
+    : createBottomTabNavigator(tabScreenConfig, {
+        //for ios like effect
         tabBarOptions: {
           inactiveBackgroundColor: Colors.accent,
           activeBackgroundColor: Colors.primary,
           activeTintColor: 'white',
-          inactiveTintColor: 'rgba( 10, 10, 10, 0.6)',//temporary colors
+          inactiveTintColor: 'rgba( 10, 10, 10, 0.6)', //temporary colors
           tabStyle: {
             borderColor: 'black',
             borderWidth: 1,

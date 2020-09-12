@@ -50,6 +50,7 @@ const styles = StyleSheet.create({
     padding: 10,
   },
   title: {
+    color: 'white',
     fontSize: 15,
     textAlign: 'right',
   },
