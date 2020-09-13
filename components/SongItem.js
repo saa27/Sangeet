@@ -21,7 +21,7 @@ const SongItem = (props) => {
   return (
     <View style={styles.songItem}>
       <View style={styles.songAndIcon}>
-        <TouchableCmp onPress={props.onSelect}> 
+        <TouchableCmp onPress={props.onSelect}>
           <View style={{flexDirection: 'row'}}>
             <Image source={{uri: props.artwork}} style={styles.songImg} />
             <View style={styles.titleAndartist}>
@@ -30,7 +30,9 @@ const SongItem = (props) => {
             </View>
           </View>
         </TouchableCmp>
-        <EvilIcons name="heart" size={28} color="white"/>
+        <TouchableCmp onPress={props.onLike}>
+          <EvilIcons name="heart" size={28} color="white" />
+        </TouchableCmp>
       </View>
     </View>
   );
@@ -46,7 +48,7 @@ const styles = StyleSheet.create({
   },
   songTitle: {
     fontSize: 18,
-    color: 'white'
+    color: 'white',
   },
   songAndIcon: {
     flexDirection: 'row',

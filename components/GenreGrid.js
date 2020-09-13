@@ -51,7 +51,7 @@ const styles = StyleSheet.create({
   },
   title: {
     color: 'white',
-    fontSize: 15,
+    fontSize: 18,
     textAlign: 'right',
   },
 });

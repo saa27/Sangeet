@@ -1,4 +1,5 @@
-import React, {useRef, useEffect, useState} from 'react';
+
+import React, {useRef, useEffect, useState, useCallback} from 'react';
 import {
   View,
   Text,
@@ -10,6 +11,8 @@ import {
 import {SafeAreaView} from 'react-native-safe-area-context';
 import {FlatList} from 'react-native-gesture-handler';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import {toggleFavourite} from '../store/actions/songsActions';
+import {useDispatch} from 'react-redux';
 
 import TrackPlayer from 'react-native-track-player';
 
@@ -33,12 +36,13 @@ const SongsPlayScreen = (props) => {
   const displayedSongs = arr.filter((song) => song.genre.indexOf(gId) >= 0);
 
   const scrollX = useRef(new Animated.Value(0)).current; //to prevent from re rendering
-  const [songIndex, setSongIndex] = useState(sId);
+  const [songIndex, setSongIndex] = useState(0);
   const slider = useRef(null);
   const [isPlayerReady, setIsPlayerReady] = useState(false);
 
   useEffect(() => {
     scrollX.addListener(({value}) => {
+      console.log(value);
       const index = Math.round(value / width);
       setSongIndex(index); //set the next song in queue
     });
@@ -73,6 +77,13 @@ const SongsPlayScreen = (props) => {
     });
   };
 
+  const dispatch = useDispatch();
+
+  const toggleFavouriteHandler = useCallback(() => {
+    console.log('liked');
+    dispatch(toggleFavourite(sId, gId));
+  }, [dispatch, sId, gId]);
+
   const renderSongItem = ({item, index}) => {
     return (
       <View style={styles.imgContainer}>
@@ -90,6 +101,12 @@ const SongsPlayScreen = (props) => {
             size={25}
             color={Colors.primary}
             onPress={() => props.navigation.goBack()}
+          />
+          <Ionicons
+            name="heart"
+            size={25}
+            color={Colors.primary}
+            onPress={toggleFavouriteHandler}
           />
         </View>
         <FlatList
@@ -127,7 +144,9 @@ const SongsPlayScreen = (props) => {
 
 const styles = StyleSheet.create({
   icon: {
-    padding: 10,
+    padding: 20,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
   },
   imgContainer: {
     width: width,

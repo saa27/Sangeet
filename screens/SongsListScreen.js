@@ -1,9 +1,12 @@
-import React from 'react';
+import React, {useCallback} from 'react';
 import {View, Text, StyleSheet, Image} from 'react-native';
 import {ScrollView, FlatList} from 'react-native-gesture-handler';
+import {useSelector, useDispatch} from 'react-redux';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
-import {SONGS, GENRES, SONGS2} from '../components/data';
+import {toggleFavourite} from '../store/actions/songsActions';
+
+import {GENRES, SONGS} from '../components/data';
 import SongItem from '../components/SongItem';
 import Colors from '../components/Colors';
 
@@ -12,14 +15,16 @@ const SongsListScreen = (props) => {
 
   const displayedGenre = GENRES.find((genre) => genre.id === gid); //getting the genre passed as param
 
-  let arr = [{}];
+  /* let arr = [{}];
   if (gid === '1') {
-    arr = SONGS;
+    arr = useSelector((state) => state.songs.songs[0]);
   } else if (gid === '2') {
-    arr = SONGS2;
-  }
+    arr = useSelector((state) => state.songs.songs[1]);
+  } */
 
-  const displayedSongs = arr.filter((song) => song.genre.indexOf(gid) >= 0); //filter out the songs of the same genre
+  const displayedSongs = SONGS.filter((song) => song.genre.indexOf(gid) >= 0); //filter out the songs of the same genre
+
+  
 
   const renderSongItem = ({item, index}) => {
     return (
@@ -33,6 +38,7 @@ const SongsListScreen = (props) => {
             gid: item.genre,
           })
         }
+        onLike={() => {}}
       />
     );
   };

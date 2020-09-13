@@ -5,7 +5,7 @@ export const GENRES = [
   new Genre(
     '1',
     'Romantic',
-    'https://samplesongs.netlify.app/album-arts/death-bed.jpg',
+    'https://res.cloudinary.com/dht1rd0lr/image/upload/v1600018632/betla_z4m9cl.jpg',
   ), //dummy colors, will add image later
   new Genre(
     '2',
@@ -41,7 +41,7 @@ export const SONGS = [
     'Death Bed',
     'Powfu',
     'https://samplesongs.netlify.app/album-arts/death-bed.jpg',
-    require('./song.mpeg'),
+    'https://res.cloudinary.com/dht1rd0lr/video/upload/v1600018774/song2_bxpoj6.mp3',
   ),
   new Song(
     '1',
@@ -75,9 +75,17 @@ export const SONGS = [
     'https://samplesongs.netlify.app/album-arts/solo.jpg',
     'https://samplesongs.netlify.app/Solo.mp3',
   ),
+  new Song(
+    '5',
+    '2',
+    'Without Me',
+    'Halsey',
+    'https://samplesongs.netlify.app/album-arts/without-me.jpg',
+    'https://samplesongs.netlify.app/Without%20Me.mp3',
+  ),
 ];
 
-export const SONGS2 = [
+/* export const SONGS2 = [
   new Song(
     '0',
     '2',
@@ -86,4 +94,4 @@ export const SONGS2 = [
     'https://samplesongs.netlify.app/album-arts/without-me.jpg',
     'https://samplesongs.netlify.app/Without%20Me.mp3',
   ),
-];
+]; */
