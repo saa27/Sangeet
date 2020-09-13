@@ -39,8 +39,8 @@ const styles = StyleSheet.create({
     margin: 5,
     height: 100,
     borderBottomEndRadius: 30,
-    borderColor: 'grey',
-    borderWidth: 1,
+    /* borderColor: 'grey',
+    borderWidth: 1, */
     overflow: 'hidden',
   },
   container: {

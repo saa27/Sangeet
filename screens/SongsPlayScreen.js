@@ -16,6 +16,7 @@ import TrackPlayer from 'react-native-track-player';
 import {SONGS, SONGS2} from '../components/data';
 import Controller from '../components/Controller';
 import MySlider from '../components/MySlider';
+import Colors from '../components/Colors';
 
 const {width, height} = Dimensions.get('window');
 
@@ -25,7 +26,7 @@ const SongsPlayScreen = (props) => {
   let arr = [{}];
   if (gId === '1') {
     arr = SONGS;
-  } else if (gId ==='2') {
+  } else if (gId === '2') {
     arr = SONGS2;
   }
 
@@ -81,12 +82,13 @@ const SongsPlayScreen = (props) => {
   };
 
   return (
-    <View>
+    <View style={{backgroundColor: 'black', flex: 1}}>
       <SafeAreaView>
         <View style={styles.icon}>
           <Ionicons
             name="arrow-back"
             size={25}
+            color={Colors.primary}
             onPress={() => props.navigation.goBack()}
           />
         </View>
@@ -138,6 +140,7 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 25,
+    color: 'white',
   },
   artist: {
     fontSize: 18,

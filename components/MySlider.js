@@ -33,13 +33,13 @@ const MySlider = (props) => {
           value={position}
           minimumTrackTintColor={Colors.primary}
           thumbTintColor={Colors.primary}
-          maximumTrackTintColor="#000000"
+          maximumTrackTintColor="gray"
           onSlidingComplete={changeSlider}
         />
       </View>
       <View style={styles.timing}>
-        <Text>{formatTime(position)}</Text>
-        <Text>{formatTime(duration)}</Text>
+        <Text style={styles.timeText}>{formatTime(position)}</Text>
+        <Text style={styles.timeText}>{formatTime(duration)}</Text>
       </View>
     </View>
   );
@@ -50,12 +50,16 @@ const styles = StyleSheet.create({
     height: 70,
   },
   slider: {
-alignItems: 'center'
+    alignItems: 'center',
   },
   timing: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    paddingHorizontal: 60
+    paddingHorizontal: 60,
+  },
+  timeText: {
+    color: Colors.primary,
+    fontSize: 12,
   },
 });
 

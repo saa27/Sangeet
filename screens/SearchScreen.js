@@ -24,13 +24,13 @@ const SearchScreen = (props) => {
   };
 
   return (
-    <View style={{flex: 1, padding: 40}}>
+    <View style={{flex: 1, padding: 20, backgroundColor: 'black'}}>
       <SearchBar
         round={true}
-        lightTheme
-        containerStyle={{backgroundColor: 'white'}}
-        inputContainerStyle={{backgroundColor: 'white'}}
-        placeholderTextColor={Colors.primary}
+        containerStyle={{backgroundColor: 'black'}}
+        inputContainerStyle={{backgroundColor: '#282828', padding: 5}}
+        inputStyle={{color: 'white'}}
+        placeholderTextColor="gray"
         placeholder="Search for songs..."
         value={search}
         underlineColorAndroid={Colors.primary}
@@ -38,9 +38,10 @@ const SearchScreen = (props) => {
           searchFilterFunction(text);
         }}
         onClear={() => searchFilterFunction('')}
+        searchIcon={{color: Colors.primary}}
       />
 
-      <ScrollView>
+      <ScrollView style={{marginTop: 20}}>
         <View>
           {data.map((item) => (
             <SongItem

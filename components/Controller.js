@@ -26,9 +26,9 @@ const Controller = (props) => {
   const renderPlayPauseButton = () => {
     switch (isPlaying) {
       case 'playing':
-        return <Fontisto name="pause" size={29} />;
+        return <Fontisto name="pause" size={29} color="white" />;
       case 'paused':
-        return <FontAwesome5 name="play" size={29} />;
+        return <FontAwesome5 name="play" size={29} color="white"/>;
       default:
         return <ActivityIndicator size={30} color="gray" />;
     }
@@ -48,13 +48,13 @@ const Controller = (props) => {
   return (
     <View style={styles.screen}>
       <TouchableOpacity onPress={props.goPrev}>
-        <AntDesign name="stepbackward" size={30} />
+        <AntDesign name="stepbackward" size={30} color="white" />
       </TouchableOpacity>
       <TouchableOpacity onPress={onPlayPause}>
         {renderPlayPauseButton()}
       </TouchableOpacity>
       <TouchableOpacity onPress={props.goNext}>
-        <AntDesign name="stepforward" size={30} />
+        <AntDesign name="stepforward" size={30} color="white" />
       </TouchableOpacity>
     </View>
   );

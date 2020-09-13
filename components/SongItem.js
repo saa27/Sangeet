@@ -30,7 +30,7 @@ const SongItem = (props) => {
             </View>
           </View>
         </TouchableCmp>
-        <EvilIcons name="heart" size={28} />
+        <EvilIcons name="heart" size={28} color="white"/>
       </View>
     </View>
   );
@@ -41,11 +41,12 @@ const styles = StyleSheet.create({
     height: 60,
     padding: 10,
     borderBottomWidth: 1,
-    borderBottomColor: '#ccc',
+    borderBottomColor: '#333333',
     justifyContent: 'center',
   },
   songTitle: {
     fontSize: 18,
+    color: 'white'
   },
   songAndIcon: {
     flexDirection: 'row',

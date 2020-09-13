@@ -5,6 +5,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 
 import {SONGS, GENRES, SONGS2} from '../components/data';
 import SongItem from '../components/SongItem';
+import Colors from '../components/Colors';
 
 const SongsListScreen = (props) => {
   const gid = props.navigation.getParam('gid');
@@ -14,7 +15,7 @@ const SongsListScreen = (props) => {
   let arr = [{}];
   if (gid === '1') {
     arr = SONGS;
-  } else if (gid ==='2') {
+  } else if (gid === '2') {
     arr = SONGS2;
   }
 
@@ -40,15 +41,18 @@ const SongsListScreen = (props) => {
     <View style={styles.screen}>
       <Ionicons
         name="arrow-back"
+        color={Colors.primary}
         size={25}
         onPress={() => props.navigation.goBack()}
       />
       <ScrollView showsVerticalScrollIndicator={false}>
-        <View style={styles.genreImage}>
-          <Image
-            source={{uri: displayedGenre.imageUrl}}
-            style={{height: 250, width: 250}}
-          />
+        <View style={styles.genreContainer}>
+          <View style={styles.genreImage}>
+            <Image
+              source={{uri: displayedGenre.imageUrl}}
+              style={{height: 250, width: 250}}
+            />
+          </View>
           <Text style={styles.genreTitle}>{displayedGenre.title}</Text>
         </View>
         <View style={styles.listContainer}>
@@ -63,17 +67,24 @@ const styles = StyleSheet.create({
   screen: {
     flex: 1,
     padding: 10,
+    backgroundColor: 'black',
   },
-  genreImage: {
+  genreContainer: {
     paddingHorizontal: 70,
     paddingTop: 70,
     paddingBottom: 40,
   },
+  genreImage: {
+    borderRadius: 150,
+    overflow: 'hidden',
+  },
+
   genreTitle: {
     paddingTop: 10,
     fontSize: 30,
     fontWeight: 'bold',
     textAlign: 'center',
+    color: 'white',
   },
   listContainer: {
     padding: 10,

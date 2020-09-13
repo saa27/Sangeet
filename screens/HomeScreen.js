@@ -48,7 +48,7 @@ const HomeScreen = (props) => {
   };
 
   return (
-    <View style={{backgroundColor: 'rgba(0,0,0, 0.8)', padding: 10}}>
+    <View style={{backgroundColor: 'black', padding: 10}}>
       <ScrollView showsVerticalScrollIndicator={false}>
         <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
           <Text style={styles.header}>Hey There!</Text>
@@ -86,12 +86,17 @@ const styles = StyleSheet.create({
   header: {
     color: 'white',
     fontSize: height / 25,
-    paddingBottom: 15,
+    paddingBottom: 20,
+    paddingTop: 15,
+    paddingLeft:10,
+    fontWeight: 'bold'
   },
   subHeader: {
     fontSize: height / 41,
     color: 'gray',
     paddingBottom: 10,
+    paddingLeft: 10,
+    fontWeight: 'bold'
   },
   listOfGenres: {
     flex: 1,
@@ -106,6 +111,7 @@ const styles = StyleSheet.create({
     color: 'gray',
     fontSize: height / 41,
     marginBottom: 10,
+    fontWeight: 'bold'
   },
 });
 
