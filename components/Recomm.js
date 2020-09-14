@@ -7,7 +7,10 @@ import {
   TouchableNativeFeedback,
   TouchableOpacity,
   Platform,
+  Dimensions,
 } from 'react-native';
+
+const {width, height} = Dimensions.get('window');
 
 let TouchableCmp = TouchableOpacity;
 
@@ -38,34 +41,33 @@ const Recomm = (props) => {
 
 const styles = StyleSheet.create({
   recommList: {
-    width: 160,
-    padding: 20,
-    marginLeft: 50,
+    width: height / 4.68,
+    padding: height / 37.5,
+    marginLeft: height / 15,
   },
   main: {
     justifyContent: 'center',
     alignItems: 'center',
   },
   card: {
-    height: 140,
-    width: 150,
+    height: height / 5.3,
+    width: height / 5,
     overflow: 'hidden',
-    marginRight: 20,
-    marginBottom: 5
+    marginRight: height / 37.5,
+    marginBottom: 5,
   },
   infoContainer: {
     justifyContent: 'center',
     alignItems: 'center',
-    marginRight: 20,
+    marginRight: height / 37.5,
   },
   title: {
     color: 'white',
-    fontSize: 18
+    fontSize: height / 41.6,
   },
   artist: {
     color: 'gray',
-
-  }
+  },
 });
 
 export default Recomm;

@@ -1,10 +1,12 @@
 import React from 'react';
-import {View, Text, StyleSheet} from 'react-native';
+import {View, Text, StyleSheet, Dimensions} from 'react-native';
 import Slider from '@react-native-community/slider';
 
 import TrackPlayer, {useProgress} from 'react-native-track-player';
 
 import Colors from '../components/Colors';
+
+const {width, height} = Dimensions.get('window');
 
 const MySlider = (props) => {
   const {position, duration} = useProgress(); //destructuring to get the position and duration
@@ -27,7 +29,7 @@ const MySlider = (props) => {
     <View style={styles.container}>
       <View style={styles.slider}>
         <Slider
-          style={{width: 320, height: 30}}
+          style={{width: height/2.35, height: height/25}}
           minimumValue={0}
           maximumValue={duration}
           value={position}
@@ -47,7 +49,7 @@ const MySlider = (props) => {
 
 const styles = StyleSheet.create({
   container: {
-    height: 70,
+    height: height/10.71,
   },
   slider: {
     alignItems: 'center',
@@ -55,11 +57,11 @@ const styles = StyleSheet.create({
   timing: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    paddingHorizontal: 60,
+    paddingHorizontal: height/12.5,
   },
   timeText: {
     color: Colors.primary,
-    fontSize: 12,
+    fontSize: height/62.5,
   },
 });
 

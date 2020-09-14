@@ -1,10 +1,12 @@
 import React from 'react';
-import {View, Text, StyleSheet, ScrollView} from 'react-native';
+import {View, Text, StyleSheet, ScrollView, Dimensions} from 'react-native';
 import {useSelector} from 'react-redux';
 
 import SongItem from '../components/SongItem';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import Colors from '../components/Colors';
+
+const {width, height} = Dimensions.get('window');
 
 const FavouritesScreen = (props) => {
   const favSongs = useSelector((state) => state.songs.favSongs);
@@ -48,16 +50,16 @@ const FavouritesScreen = (props) => {
 
 const styles = StyleSheet.create({
   screen: {
-    padding: 20,
+    padding: height/37,
     flex: 1,
     backgroundColor: 'black',
   },
   fav: {
     color: 'white',
-    fontSize: 30,
+    fontSize: height/25,
     fontWeight: 'bold',
-    paddingVertical: 10,
-    paddingRight: 10
+    paddingVertical: height/75,
+    paddingRight: height/75
   },
   noFav: {
     color: '#a6a6a6',

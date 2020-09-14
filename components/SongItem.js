@@ -7,11 +7,14 @@ import {
   TouchableOpacity,
   TouchableNativeFeedback,
   ActivityIndicator,
+  Dimensions,
 } from 'react-native';
 import {Image} from 'react-native-elements';
 
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import Colors from '../components/Colors';
+
+const {width, height} = Dimensions.get('window');
 
 let TouchableCmp = TouchableOpacity;
 
@@ -39,7 +42,11 @@ const SongItem = (props) => {
           </View>
         </TouchableCmp>
         <TouchableCmp onPress={props.onLike}>
-          <Ionicons name={props.icon} size={28} color={Colors.primary} />
+          <Ionicons
+            name={props.icon}
+            size={height / 26.7}
+            color={Colors.primary}
+          />
         </TouchableCmp>
       </View>
     </View>
@@ -48,14 +55,14 @@ const SongItem = (props) => {
 
 const styles = StyleSheet.create({
   songItem: {
-    height: 60,
-    padding: 10,
+    height: height / 12,
+    padding: height / 75,
     borderBottomWidth: 1,
     borderBottomColor: '#333333',
     justifyContent: 'center',
   },
   songTitle: {
-    fontSize: 18,
+    fontSize: height / 41.6,
     color: 'white',
   },
   songAndIcon: {
@@ -63,14 +70,14 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
   },
   songImg: {
-    height: 40,
-    width: 40,
+    height: height / 18.75,
+    width: height / 18.75,
   },
   titleAndartist: {
-    paddingLeft: 10,
+    paddingLeft: height / 75,
   },
   songArtist: {
-    fontSize: 12,
+    fontSize: height / 62,
     color: 'gray',
   },
 });

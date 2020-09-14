@@ -1,5 +1,5 @@
 import React, {useCallback} from 'react';
-import {View, Text, StyleSheet, Image} from 'react-native';
+import {View, Text, StyleSheet, Image, Dimensions} from 'react-native';
 import {ScrollView, FlatList} from 'react-native-gesture-handler';
 import {useSelector, useDispatch} from 'react-redux';
 import Ionicons from 'react-native-vector-icons/Ionicons';
@@ -17,6 +17,8 @@ import {
 } from '../components/data';
 import SongItem from '../components/SongItem';
 import Colors from '../components/Colors';
+
+const {width, height} = Dimensions.get('window');
 
 const SongsListScreen = (props) => {
   const gid = props.navigation.getParam('gid');
@@ -62,7 +64,7 @@ const SongsListScreen = (props) => {
       <Ionicons
         name="arrow-back"
         color={Colors.primary}
-        size={25}
+        size={height/30}
         onPress={() => props.navigation.goBack()}
       />
       <ScrollView showsVerticalScrollIndicator={false}>
@@ -70,7 +72,7 @@ const SongsListScreen = (props) => {
           <View style={styles.genreImage}>
             <Image
               source={{uri: displayedGenre.imageUrl}}
-              style={{height: 250, width: 250}}
+              style={{height: height/2.8, width: height/2.8}}
             />
           </View>
           <Text style={styles.genreTitle}>{displayedGenre.title}</Text>
@@ -86,28 +88,28 @@ const SongsListScreen = (props) => {
 const styles = StyleSheet.create({
   screen: {
     flex: 1,
-    padding: 10,
+    padding: height/75,
     backgroundColor: 'black',
   },
   genreContainer: {
-    paddingHorizontal: 70,
-    paddingTop: 70,
-    paddingBottom: 40,
+    paddingHorizontal: height/10.7,
+    paddingTop: height/20,
+    paddingBottom: height/18.7,
   },
   genreImage: {
-    borderRadius: 150,
+    borderRadius: height/5,
     overflow: 'hidden',
   },
 
   genreTitle: {
-    paddingTop: 10,
-    fontSize: 30,
+    paddingTop: height/75,
+    fontSize: height/25,
     fontWeight: 'bold',
     textAlign: 'center',
     color: 'white',
   },
   listContainer: {
-    padding: 10,
+    padding: height/75,
   },
 });
 

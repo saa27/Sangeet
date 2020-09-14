@@ -7,12 +7,15 @@ import {
   TouchableOpacity,
   TouchableNativeFeedback,
   Platform,
+  Dimensions,
 } from 'react-native';
+
+const {width, height} = Dimensions.get('window');
 
 let TouchableCmp = TouchableOpacity;
 
 if (Platform.OS === 'android' && Platform.Version >= 21) {
-  TouchableCmp = TouchableNativeFeedback;//diff for both ios and android
+  TouchableCmp = TouchableNativeFeedback; //diff for both ios and android
 }
 
 const GenreGrid = (props) => {
@@ -37,8 +40,8 @@ const styles = StyleSheet.create({
   grid: {
     flex: 1,
     margin: 5,
-    height: 100,
-    borderBottomEndRadius: 30,
+    height: height / 7,
+    borderBottomEndRadius: height / 25,
     /* borderColor: 'grey',
     borderWidth: 1, */
     overflow: 'hidden',
@@ -47,11 +50,11 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    padding: 10,
+    padding: height / 75,
   },
   title: {
     color: 'white',
-    fontSize: 18,
+    fontSize: height / 41.6,
     textAlign: 'right',
   },
 });

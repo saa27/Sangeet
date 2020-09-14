@@ -76,36 +76,36 @@ const HomeScreen = (props) => {
 
 const styles = StyleSheet.create({
   welcome: {
-    padding: 20,
+    padding: height / 37,
   },
   header: {
     color: 'white',
     fontSize: height / 25,
-    paddingBottom: 20,
-    paddingTop: 15,
-    paddingLeft: 10,
+    paddingBottom: height / 37,
+    paddingTop: height / 50,
+    paddingLeft: width / 25,
     fontWeight: 'bold',
   },
   subHeader: {
     fontSize: height / 41,
     color: 'gray',
-    paddingBottom: 10,
-    paddingLeft: 10,
+    paddingBottom: height / 75,
+    paddingLeft: width / 25,
     fontWeight: 'bold',
   },
   listOfGenres: {
     flex: 1,
-    marginBottom: 20,
+    marginBottom: height / 37,
   },
 
   recomm: {
-    padding: 10,
-    height: 280,
+    padding: height / 75,
+    height: height / 2,
   },
   recommText: {
     color: 'gray',
     fontSize: height / 41,
-    marginBottom: 15,
+    marginBottom: height / 50,
     fontWeight: 'bold',
   },
 });

@@ -111,7 +111,10 @@ const SongsPlayScreen = (props) => {
   const renderSongItem = ({item, index}) => {
     return (
       <View style={styles.imgContainer}>
-        <Image source={{uri: item.artwork}} style={{height: 320, width: 320}} />
+        <Image
+          source={{uri: item.artwork}}
+          style={{height: height / 2.3, width: height / 2.3}}
+        />
       </View>
     );
   };
@@ -122,13 +125,13 @@ const SongsPlayScreen = (props) => {
         <View style={styles.icon}>
           <Ionicons
             name="arrow-back"
-            size={25}
+            size={height / 30}
             color={Colors.primary}
             onPress={() => props.navigation.goBack()}
           />
           <Ionicons
             name={currentSongIsFav ? 'heart' : 'heart-outline'}
-            size={25}
+            size={height / 30}
             color={Colors.primary}
             onPress={toggleFavouriteHandler}
           />
@@ -170,7 +173,7 @@ const SongsPlayScreen = (props) => {
 
 const styles = StyleSheet.create({
   icon: {
-    padding: 20,
+    padding: height / 37.5,
     flexDirection: 'row',
     justifyContent: 'space-between',
   },
@@ -179,17 +182,17 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   songinfoCont: {
-    padding: 20,
+    padding: height / 37.5,
     alignItems: 'center',
-    marginBottom: 5,
+    marginBottom: height / 150,
   },
   title: {
-    fontSize: 22,
+    fontSize: height / 34,
     color: 'white',
-    paddingBottom: 5,
+    paddingBottom: height / 150,
   },
   artist: {
-    fontSize: 18,
+    fontSize: height / 41.6,
     color: 'gray',
   },
 });

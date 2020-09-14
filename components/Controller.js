@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {View, StyleSheet, ActivityIndicator} from 'react-native';
+import {View, StyleSheet, ActivityIndicator, Dimensions} from 'react-native';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 
 import TrackPlayer from 'react-native-track-player';
@@ -8,6 +8,8 @@ import {usePlaybackState} from 'react-native-track-player/lib/hooks';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import Fontisto from 'react-native-vector-icons/Fontisto';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
+
+const {width, height} = Dimensions.get('window');
 
 const Controller = (props) => {
   const playBackState = usePlaybackState(); //custom hook
@@ -26,11 +28,11 @@ const Controller = (props) => {
   const renderPlayPauseButton = () => {
     switch (isPlaying) {
       case 'playing':
-        return <Fontisto name="pause" size={29} color="white" />;
+        return <Fontisto name="pause" size={height / 25.8} color="white" />;
       case 'paused':
-        return <FontAwesome5 name="play" size={29} color="white"/>;
+        return <FontAwesome5 name="play" size={height / 25.8} color="white" />;
       default:
-        return <ActivityIndicator size={30} color="gray" />;
+        return <ActivityIndicator size={height / 25} color="gray" />;
     }
   };
 
@@ -48,13 +50,13 @@ const Controller = (props) => {
   return (
     <View style={styles.screen}>
       <TouchableOpacity onPress={props.goPrev}>
-        <AntDesign name="stepbackward" size={30} color="white" />
+        <AntDesign name="stepbackward" size={height / 25} color="white" />
       </TouchableOpacity>
       <TouchableOpacity onPress={onPlayPause}>
         {renderPlayPauseButton()}
       </TouchableOpacity>
       <TouchableOpacity onPress={props.goNext}>
-        <AntDesign name="stepforward" size={30} color="white" />
+        <AntDesign name="stepforward" size={height / 25} color="white" />
       </TouchableOpacity>
     </View>
   );

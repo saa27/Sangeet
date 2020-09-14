@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {View} from 'react-native';
+import {View, Dimensions} from 'react-native';
 import {SearchBar} from 'react-native-elements';
 
 import {
@@ -15,6 +15,8 @@ import {
 import SongItem from '../components/SongItem';
 import Colors from '../components/Colors';
 import {ScrollView} from 'react-native-gesture-handler';
+
+const {width, height} = Dimensions.get('window');
 
 const SearchScreen = (props) => {
   const [search, setSearch] = useState('');
@@ -40,7 +42,7 @@ const SearchScreen = (props) => {
   };
 
   return (
-    <View style={{flex: 1, padding: 20, backgroundColor: 'black'}}>
+    <View style={{flex: 1, padding: height / 37, backgroundColor: 'black'}}>
       <SearchBar
         round={true}
         containerStyle={{backgroundColor: 'black'}}
@@ -57,7 +59,7 @@ const SearchScreen = (props) => {
         searchIcon={{color: Colors.primary}}
       />
 
-      <ScrollView style={{marginTop: 20}}>
+      <ScrollView style={{marginTop: height/37}}>
         <View>
           {data.map((item) => (
             <SongItem
