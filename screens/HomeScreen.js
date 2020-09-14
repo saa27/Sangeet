@@ -1,18 +1,8 @@
-import React, {useState} from 'react';
-import {
-  View,
-  Text,
-  StyleSheet,
-  Platform,
-  Dimensions,
-  FlatList,
-  Image,
-} from 'react-native';
-import {SearchBar} from 'react-native-elements';
+import React from 'react';
+import {View, Text, StyleSheet, Dimensions, FlatList} from 'react-native';
 import {ScrollView, TouchableOpacity} from 'react-native-gesture-handler';
 
-import Colors from '../components/Colors';
-import {GENRES, SONGS, SONGS2} from '../components/data';
+import {GENRES, SONGS} from '../components/data';
 import GenreGrid from '../components/GenreGrid';
 import Recomm from '../components/Recomm';
 
@@ -71,8 +61,13 @@ const HomeScreen = (props) => {
           />
         </View>
         <View style={styles.recomm}>
-          <Text style={styles.recommText}>Recommended for you</Text>
-          <FlatList horizontal data={SONGS} renderItem={renderSongItem} showsHorizontalScrollIndicator={false} />
+          <Text style={styles.recommText}>English Tracks</Text>
+          <FlatList
+            horizontal
+            data={SONGS}
+            renderItem={renderSongItem}
+            showsHorizontalScrollIndicator={false}
+          />
         </View>
       </ScrollView>
     </View>
@@ -88,15 +83,15 @@ const styles = StyleSheet.create({
     fontSize: height / 25,
     paddingBottom: 20,
     paddingTop: 15,
-    paddingLeft:10,
-    fontWeight: 'bold'
+    paddingLeft: 10,
+    fontWeight: 'bold',
   },
   subHeader: {
     fontSize: height / 41,
     color: 'gray',
     paddingBottom: 10,
     paddingLeft: 10,
-    fontWeight: 'bold'
+    fontWeight: 'bold',
   },
   listOfGenres: {
     flex: 1,
@@ -110,8 +105,8 @@ const styles = StyleSheet.create({
   recommText: {
     color: 'gray',
     fontSize: height / 41,
-    marginBottom: 10,
-    fontWeight: 'bold'
+    marginBottom: 15,
+    fontWeight: 'bold',
   },
 });
 

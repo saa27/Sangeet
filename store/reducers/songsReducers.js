@@ -1,8 +1,16 @@
-import {SONGS, SONGS2} from '../../components/data';
+import {
+  CLASSICS,
+  DANCE,
+  ROCKON,
+  ROM,
+  SONGS,
+  SOOTHING,
+  WORKOUT,
+} from '../../components/data';
 import {TOGGLE_FAVOURITE} from '../actions/songsActions';
 
 const initialState = {
-  songs: [SONGS, SONGS2],
+  songs: [ROM, SOOTHING, ROCKON, CLASSICS, WORKOUT, DANCE, SONGS],
   favSongs: [],
 };
 
@@ -22,6 +30,21 @@ const songsReducer = (state = initialState, action) => {
           return {...state, favSongs: state.favSongs.concat(song)};
         } else if (action.genreId === '2') {
           const song = state.songs[1].find((s) => s.id === action.songId);
+          return {...state, favSongs: state.favSongs.concat(song)};
+        } else if (action.genreId === '3') {
+          const song = state.songs[2].find((s) => s.id === action.songId);
+          return {...state, favSongs: state.favSongs.concat(song)};
+        } else if (action.genreId === '4') {
+          const song = state.songs[3].find((s) => s.id === action.songId);
+          return {...state, favSongs: state.favSongs.concat(song)};
+        } else if (action.genreId === '5') {
+          const song = state.songs[4].find((s) => s.id === action.songId);
+          return {...state, favSongs: state.favSongs.concat(song)};
+        } else if (action.genreId === '6') {
+          const song = state.songs[5].find((s) => s.id === action.songId);
+          return {...state, favSongs: state.favSongs.concat(song)};
+        } else if (action.genreId === '7') {
+          const song = state.songs[6].find((s) => s.id === action.songId);
           return {...state, favSongs: state.favSongs.concat(song)};
         }
       }

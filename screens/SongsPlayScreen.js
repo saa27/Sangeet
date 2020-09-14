@@ -15,7 +15,15 @@ import {useDispatch, useSelector} from 'react-redux';
 
 import TrackPlayer from 'react-native-track-player';
 
-import {SONGS, SONGS2} from '../components/data';
+import {
+  ROM,
+  SOOTHING,
+  ROCKON,
+  CLASSICS,
+  WORKOUT,
+  DANCE,
+  SONGS,
+} from '../components/data';
 import Controller from '../components/Controller';
 import MySlider from '../components/MySlider';
 import Colors from '../components/Colors';
@@ -27,9 +35,19 @@ const SongsPlayScreen = (props) => {
   const gId = props.navigation.getParam('gid');
   let arr = [{}];
   if (gId === '1') {
-    arr = SONGS;
+    arr = ROM;
   } else if (gId === '2') {
-    arr = SONGS2;
+    arr = SOOTHING;
+  } else if (gId === '3') {
+    arr = ROCKON;
+  } else if (gId === '4') {
+    arr = CLASSICS;
+  } else if (gId === '5') {
+    arr = WORKOUT;
+  } else if (gId === '6') {
+    arr = DANCE;
+  } else if (gId === '7') {
+    arr = SONGS;
   }
 
   const displayedSongs = arr.filter((song) => song.genre.indexOf(gId) >= 0);
@@ -139,7 +157,9 @@ const SongsPlayScreen = (props) => {
         />
       </SafeAreaView>
       <View style={styles.songinfoCont}>
-        <Text style={styles.title}>{displayedSongs[songIndex].title}</Text>
+        <Text style={styles.title} numberOfLines={1}>
+          {displayedSongs[songIndex].title}
+        </Text>
         <Text style={styles.artist}>{displayedSongs[songIndex].artist}</Text>
       </View>
       <MySlider />
@@ -164,8 +184,9 @@ const styles = StyleSheet.create({
     marginBottom: 5,
   },
   title: {
-    fontSize: 25,
+    fontSize: 22,
     color: 'white',
+    paddingBottom: 5,
   },
   artist: {
     fontSize: 18,

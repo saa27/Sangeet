@@ -3,6 +3,8 @@ import {View, Text, StyleSheet, ScrollView} from 'react-native';
 import {useSelector} from 'react-redux';
 
 import SongItem from '../components/SongItem';
+import Ionicons from 'react-native-vector-icons/Ionicons';
+import Colors from '../components/Colors';
 
 const FavouritesScreen = (props) => {
   const favSongs = useSelector((state) => state.songs.favSongs);
@@ -20,7 +22,9 @@ const FavouritesScreen = (props) => {
 
   return (
     <View style={styles.screen}>
-      <Text style={styles.fav}>Your Favourites</Text>
+      <View style={styles.header}>
+        <Text style={styles.fav}>Your Favourites</Text>
+      </View>
       <ScrollView style={{marginTop: 20}}>
         <View>
           {favSongs.map((item) => (
@@ -53,9 +57,14 @@ const styles = StyleSheet.create({
     fontSize: 30,
     fontWeight: 'bold',
     paddingVertical: 10,
+    paddingRight: 10
   },
   noFav: {
     color: '#a6a6a6',
+  },
+  header: {
+    flexDirection: 'row',
+    
   },
 });
 

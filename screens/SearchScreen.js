@@ -1,8 +1,16 @@
 import React, {useState} from 'react';
-import {View, Text, FlatList} from 'react-native';
+import {View} from 'react-native';
 import {SearchBar} from 'react-native-elements';
 
-import {GENRES, SONGS, SONGS2} from '../components/data';
+import {
+  CLASSICS,
+  DANCE,
+  ROCKON,
+  ROM,
+  SOOTHING,
+  WORKOUT,
+  SONGS,
+} from '../components/data';
 
 import SongItem from '../components/SongItem';
 import Colors from '../components/Colors';
@@ -11,7 +19,15 @@ import {ScrollView} from 'react-native-gesture-handler';
 const SearchScreen = (props) => {
   const [search, setSearch] = useState('');
   const [data, setData] = useState([]);
-  const arrayHolder = [...SONGS, ...SONGS2];
+  const arrayHolder = [
+    ...ROM,
+    ...SOOTHING,
+    ...DANCE,
+    ...ROCKON,
+    ...CLASSICS,
+    ...WORKOUT,
+    ...SONGS,
+  ];
 
   const searchFilterFunction = (text) => {
     const newData = arrayHolder.filter((item) => {

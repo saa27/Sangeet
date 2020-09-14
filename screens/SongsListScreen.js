@@ -6,7 +6,15 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 
 import {toggleFavourite} from '../store/actions/songsActions';
 
-import {GENRES, SONGS} from '../components/data';
+import {
+  CLASSICS,
+  DANCE,
+  GENRES,
+  ROCKON,
+  ROM,
+  SOOTHING,
+  WORKOUT,
+} from '../components/data';
 import SongItem from '../components/SongItem';
 import Colors from '../components/Colors';
 
@@ -17,14 +25,20 @@ const SongsListScreen = (props) => {
 
   let arr = [{}];
   if (gid === '1') {
-    arr = useSelector((state) => state.songs.songs[0]);
+    arr = ROM;
   } else if (gid === '2') {
-    arr = useSelector((state) => state.songs.songs[1]);
+    arr = SOOTHING;
+  } else if (gid === '3') {
+    arr = ROCKON;
+  } else if (gid === '4') {
+    arr = CLASSICS;
+  } else if (gid === '5') {
+    arr = WORKOUT;
+  } else if (gid === '6') {
+    arr = DANCE;
   }
 
   const displayedSongs = arr.filter((song) => song.genre.indexOf(gid) >= 0); //filter out the songs of the same genre
-
-  
 
   const renderSongItem = ({item, index}) => {
     return (
