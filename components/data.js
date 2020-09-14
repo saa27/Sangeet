@@ -85,7 +85,7 @@ export const SONGS = [
   ),
 ];
 
-/* export const SONGS2 = [
+export const SONGS2 = [
   new Song(
     '0',
     '2',
@@ -94,4 +94,4 @@ export const SONGS = [
     'https://samplesongs.netlify.app/album-arts/without-me.jpg',
     'https://samplesongs.netlify.app/Without%20Me.mp3',
   ),
-]; */
+];
