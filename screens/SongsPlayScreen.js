@@ -1,4 +1,3 @@
-
 import React, {useRef, useEffect, useState, useCallback} from 'react';
 import {
   View,
@@ -12,7 +11,7 @@ import {SafeAreaView} from 'react-native-safe-area-context';
 import {FlatList} from 'react-native-gesture-handler';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import {toggleFavourite} from '../store/actions/songsActions';
-import {useDispatch} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 
 import TrackPlayer from 'react-native-track-player';
 
@@ -45,6 +44,7 @@ const SongsPlayScreen = (props) => {
       console.log(value);
       const index = Math.round(value / width);
       setSongIndex(index); //set the next song in queue
+      console.log(index);
     });
 
     TrackPlayer.setupPlayer().then(async () => {
@@ -79,10 +79,16 @@ const SongsPlayScreen = (props) => {
 
   const dispatch = useDispatch();
 
+  const currentSongIsFav = useSelector((state) =>
+    state.songs.favSongs.some(
+      (song) => song.id === displayedSongs[songIndex].id,
+    ),
+  );
+
   const toggleFavouriteHandler = useCallback(() => {
     console.log('liked');
-    dispatch(toggleFavourite(sId, gId));
-  }, [dispatch, sId, gId]);
+    dispatch(toggleFavourite(displayedSongs[songIndex].id, gId));
+  }, [dispatch, displayedSongs[songIndex].id, gId]);
 
   const renderSongItem = ({item, index}) => {
     return (
@@ -103,7 +109,7 @@ const SongsPlayScreen = (props) => {
             onPress={() => props.navigation.goBack()}
           />
           <Ionicons
-            name="heart"
+            name={currentSongIsFav ? 'heart' : 'heart-outline'}
             size={25}
             color={Colors.primary}
             onPress={toggleFavouriteHandler}

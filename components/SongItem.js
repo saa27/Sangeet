@@ -9,7 +9,8 @@ import {
   TouchableNativeFeedback,
 } from 'react-native';
 
-import EvilIcons from 'react-native-vector-icons/EvilIcons';
+import Ionicons from 'react-native-vector-icons/Ionicons';
+import Colors from '../components/Colors';
 
 let TouchableCmp = TouchableOpacity;
 
@@ -31,7 +32,7 @@ const SongItem = (props) => {
           </View>
         </TouchableCmp>
         <TouchableCmp onPress={props.onLike}>
-          <EvilIcons name="heart" size={28} color="white" />
+          <Ionicons name={props.icon} size={28} color={Colors.primary} />
         </TouchableCmp>
       </View>
     </View>
