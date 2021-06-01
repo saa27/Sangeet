@@ -12,7 +12,7 @@ import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 const {width, height} = Dimensions.get('window');
 
 const Controller = (props) => {
-  const playBackState = usePlaybackState(); //custom hook
+  const playBackState = usePlaybackState(); //custom hook by the react-native-track-player package
   const [isPlaying, setIsPlaying] = useState('paused');
 
   useEffect(() => {

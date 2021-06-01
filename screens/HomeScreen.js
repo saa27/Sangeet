@@ -42,12 +42,12 @@ const HomeScreen = (props) => {
       <ScrollView showsVerticalScrollIndicator={false}>
         <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
           <Text style={styles.header}>Namaste!</Text>
-          <TouchableOpacity
+          {/* <TouchableOpacity
             onPress={() => {
-              props.navigation.navigate('Search');
+              props.navigation.navigate('Search');//added just for test purpose
             }}>
             <Text>Search</Text>
-          </TouchableOpacity>
+          </TouchableOpacity> */}
         </View>
         <Text style={styles.subHeader}>Choose your favourite genre!</Text>
 

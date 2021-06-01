@@ -58,9 +58,7 @@ const tabScreenConfig = {
     screen: AllSongsNavigator,
     navigationOptions: {
       tabBarIcon: (tabInfo) => {
-        return (
-          <MaterialIcons name="home" size={25} color={tabInfo.tintColor} />
-        );
+        return <Ionicons name="home" size={25} color={tabInfo.tintColor} />;
       },
       tabBarColor: '#282828',
       tabBarLabel: Platform.OS === 'android' ? <Text>Home</Text> : 'Home',

@@ -12,8 +12,8 @@ const MySlider = (props) => {
   const {position, duration} = useProgress(); //destructuring to get the position and duration
 
   const formatTime = (secs) => {
-    let minutes = Math.floor(secs / 60);
-    let seconds = Math.ceil(secs - minutes * 60);
+    let minutes = Math.floor(secs / 60);//returns 2 for 2.4
+    let seconds = Math.ceil(secs - minutes * 60);//returns 2 for 1.4
 
     if (seconds < 10) seconds = `0${seconds}`; //to get the format 0: "05"
 
@@ -22,7 +22,7 @@ const MySlider = (props) => {
 
   const changeSlider = (val) => {
     console.log(val);
-    TrackPlayer.seekTo(val);
+    TrackPlayer.seekTo(val);//seeks to a specified time position in secs
   };
 
   return (

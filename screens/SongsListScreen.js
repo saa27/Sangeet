@@ -21,9 +21,9 @@ import Colors from '../components/Colors';
 const {width, height} = Dimensions.get('window');
 
 const SongsListScreen = (props) => {
-  const gid = props.navigation.getParam('gid');
+  const gid = props.navigation.getParam('gid');//getting the genre passed as param
 
-  const displayedGenre = GENRES.find((genre) => genre.id === gid); //getting the genre passed as param
+  const displayedGenre = GENRES.find((genre) => genre.id === gid); //finding the genre by the id whose songs are going to be displayed
 
   let arr = [{}];
   if (gid === '1') {
@@ -40,7 +40,8 @@ const SongsListScreen = (props) => {
     arr = DANCE;
   }
 
-  const displayedSongs = arr.filter((song) => song.genre.indexOf(gid) >= 0); //filter out the songs of the same genre
+  const displayedSongs = arr.filter((song) => song.genre.indexOf(gid) >= 0); //filter out the songs of the same genre,
+  // not needed though coz arr also contains the songs of the required genre
 
   const renderSongItem = ({item, index}) => {
     return (

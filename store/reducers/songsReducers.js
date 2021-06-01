@@ -21,8 +21,8 @@ const songsReducer = (state = initialState, action) => {
         (song) => song.id === action.songId,
       );
       if (existingFav >= 0) {
-        const updatedFavSongs = [...state.favSongs];
-        updatedFavSongs.splice(existingFav, 1);
+        const updatedFavSongs = [...state.favSongs];//since we don't want to make any changes in the original array favSongs
+        updatedFavSongs.splice(existingFav, 1);//only remove the song which was already in the favSongs
         return {...state, favSongs: updatedFavSongs};
       } else {
         if (action.genreId === '1') {
