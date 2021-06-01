@@ -15,7 +15,7 @@ const HomeScreen = (props) => {
         imageUrl={item.imageUrl}
         title={item.title}
         onSelect={() => {
-          props.navigation.navigate('SongsList', {gid: item.id}); //passing the id of genre as params to view its songs in the next screen
+          props.navigation.navigate('SongsList', {gid: item.id}); //passing the id of genre as params to view its songs in the next screens
         }}
       />
     );
